@@ -1,6 +1,6 @@
 {
   "name": "@viviengraffin/translation-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "exports": {
     ".": "./src/main.ts",
     "./context": "./src/context.tsx"
@@ -36,5 +36,6 @@
       "deno.json",
       "LICENSE"
     ]
-  }
+  },
+  "nodeModulesDir": "auto"
 }
