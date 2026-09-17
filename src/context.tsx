@@ -6,7 +6,7 @@ import {
   type TranslationContainer,
   TranslationNamespaces,
 } from "@viviengraffin/translation-core/frontend";
-import {
+import React, {
   createContext,
   type JSX,
   type PropsWithChildren,

@@ -1,6 +1,7 @@
 import type { TranslationObject } from "@viviengraffin/translation-core";
 import type { ReactElement } from "react";
 import type { HelloPeopleArgs } from "./types.ts";
+import React from "react";
 
 export default {
   hello: {

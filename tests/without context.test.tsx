@@ -6,6 +6,7 @@ import {
 } from "@viviengraffin/translation-react";
 import translations from "./datas/react/translation.ts";
 import { assertEquals, assertRejects } from "@std/assert";
+import React from "react";
 
 async function buildInstance(
   callback: (builder: TranslationBuilder<TranslationReact>) => void = () => {},

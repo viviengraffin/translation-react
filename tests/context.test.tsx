@@ -1,5 +1,6 @@
 import { assertEquals, assertRejects, assertThrows } from "@std/assert";
 import { render, screen, waitFor } from "@testing-library/react";
+import React from "react";
 
 import { TranslationReactProvider, useTranslation } from "@/context.tsx";
 

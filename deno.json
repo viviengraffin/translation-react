@@ -1,13 +1,15 @@
 {
   "name": "@viviengraffin/translation-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "exports": {
     ".": "./src/main.ts",
     "./context": "./src/context.tsx"
   },
   "imports": {
-    "@/":"./src/",
-    "@viviengraffin/translation-core":"jsr:@viviengraffin/translation-core@^1.0.0",
+    "@/": "./src/",
+    "@std/fs": "jsr:@std/fs@^1.0.24",
+    "@std/path": "jsr:@std/path@^1.1.6",
+    "@viviengraffin/translation-core": "jsr:@viviengraffin/translation-core@^1.0.0",
     "react": "npm:react@^19.2.8",
     "react-dom": "npm:react-dom@^19.2.8",
     "@types/react": "npm:@types/react@^19.2.8",
@@ -23,11 +25,11 @@
       "node",
       "dom"
     ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsx": "react"
   },
   "tasks": {
-    "test": "deno test --allow-env --preload tests/setup.ts"
+    "test": "deno test --allow-env --preload tests/setup.ts",
+    "build:npm": "deno -A ./scripts/build/npm.ts"
   },
   "publish": {
     "include": [
@@ -37,5 +39,12 @@
       "LICENSE"
     ]
   },
-  "nodeModulesDir": "auto"
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-unused-vars",
+        "verbatim-module-syntax"
+      ]
+    }
+  }
 }
