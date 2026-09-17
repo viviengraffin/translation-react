@@ -1,6 +1,6 @@
 {
   "name": "@viviengraffin/translation-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "exports": {
     ".": "./src/main.ts",
     "./context": "./src/context.tsx"
@@ -15,7 +15,8 @@
       "node",
       "dom"
     ],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "tasks": {
     "test": "deno test --allow-env --preload tests/setup.ts"
