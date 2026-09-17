@@ -1,14 +1,29 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@jsr/std__assert@latest": "1.0.19",
-    "npm:@jsr/viviengraffin__translation-core@^1.0.1": "1.0.3",
+    "jsr:@std/assert@^1.0.19": "1.0.19",
+    "jsr:@std/internal@^1.0.12": "1.0.14",
+    "jsr:@viviengraffin/translation-core@1": "1.0.3",
     "npm:@testing-library/react@^16.3.3": "16.3.3_@testing-library+dom@10.4.2_@types+react@19.3.0_@types+react-dom@19.3.0_react@19.3.0_react-dom@19.3.0",
-    "npm:@types/react-dom@19": "19.3.0_@types+react@19.3.0",
-    "npm:@types/react@19": "19.3.0",
-    "npm:happy-dom@20.14.5": "20.14.5",
-    "npm:react-dom@19": "19.3.0_react@19.3.0",
-    "npm:react@19": "19.3.0"
+    "npm:@types/react-dom@^19.2.8": "19.3.0_@types+react@19.3.0",
+    "npm:@types/react@^19.2.8": "19.3.0",
+    "npm:happy-dom@^20.14.5": "20.14.5",
+    "npm:react-dom@^19.2.8": "19.3.0_react@19.3.0",
+    "npm:react@^19.2.8": "19.3.0"
+  },
+  "jsr": {
+    "@std/assert@1.0.19": {
+      "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.14": {
+      "integrity": "291516b3d4c35024d6ffbc0a9df5bf4c64116e05b50012cf846710152d2ffdf7"
+    },
+    "@viviengraffin/translation-core@1.0.3": {
+      "integrity": "f78fc1bebfe190084358b57445da8eb414d7f4a76952f9ecfc8c061f644c3a28"
+    }
   },
   "npm": {
     "@babel/code-frame@7.29.7": {
@@ -24,21 +39,6 @@
     },
     "@babel/runtime@7.29.7": {
       "integrity": "sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw=="
-    },
-    "@jsr/std__assert@1.0.19": {
-      "integrity": "sha512-pEj6RPkGbqlgRmyKwATp4cUs6+ijxtdrv3bq8v1d2I2CEcMEyPaO8cVKro61wGRDH4cNg8Zx6haztvK/9m7gkA==",
-      "dependencies": [
-        "@jsr/std__internal"
-      ],
-      "tarball": "https://npm.jsr.io/~/11/@jsr/std__assert/1.0.19.tgz"
-    },
-    "@jsr/std__internal@1.0.14": {
-      "integrity": "sha512-JT8b/t40WcR9q0GDwRZUooY7aXeXnFal8iidE/5TckdAFtvpVAsaJ71/Xgf1SfoChs41s6CZkuCYM8toaNgdvA==",
-      "tarball": "https://npm.jsr.io/~/11/@jsr/std__internal/1.0.14.tgz"
-    },
-    "@jsr/viviengraffin__translation-core@1.0.3": {
-      "integrity": "sha512-4FY3XUhb1Wuf4Dz2yNueuuMLlkpcN7eT3u8cwWXZ78RDD0xbD/iyDDFMQDTJmUEdoyV0cf9+Ve1KT1X8BIsJZQ==",
-      "tarball": "https://npm.jsr.io/~/11/@jsr/viviengraffin__translation-core/1.0.3.tgz"
     },
     "@testing-library/dom@10.4.2": {
       "integrity": "sha512-yzr2S9HyAIdhz2/6qHgbs665Q7PKVcDF05vsOlHPxG1mo36gKVesdYVeDLnXgfjJ03CrKRk08knc6+E/9m8v2Q==",
@@ -185,17 +185,15 @@
     }
   },
   "workspace": {
-    "packageJson": {
-      "dependencies": [
-        "npm:@jsr/std__assert@latest",
-        "npm:@jsr/viviengraffin__translation-core@^1.0.1",
-        "npm:@testing-library/react@^16.3.3",
-        "npm:@types/react-dom@19",
-        "npm:@types/react@19",
-        "npm:happy-dom@20.14.5",
-        "npm:react-dom@19",
-        "npm:react@19"
-      ]
-    }
+    "dependencies": [
+      "jsr:@std/assert@^1.0.19",
+      "jsr:@viviengraffin/translation-core@1",
+      "npm:@testing-library/react@^16.3.3",
+      "npm:@types/react-dom@^19.2.8",
+      "npm:@types/react@^19.2.8",
+      "npm:happy-dom@^20.14.5",
+      "npm:react-dom@^19.2.8",
+      "npm:react@^19.2.8"
+    ]
   }
 }
