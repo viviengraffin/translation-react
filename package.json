@@ -1,0 +1,25 @@
+{
+  "name": "@viviengraffin/translation-react",
+  "version": "1.0.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/main.ts",
+    "./context": "./src/context.tsx"
+  },
+  "dependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@viviengraffin/translation-core": "jsr:@viviengraffin/translation-core@^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@std/assert": "jsr:@std/assert@latest",
+    "happy-dom": "20.14.5"
+  }
+}
