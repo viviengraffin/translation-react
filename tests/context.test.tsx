@@ -5,12 +5,13 @@ import React from "react";
 import { TranslationReactProvider, useTranslation } from "@/context.tsx";
 
 import translations from "./datas/react/translation.ts";
+import { TestEnvironment } from "./lib.ts";
 
 let elementNumber = 0;
 
 Deno.test("TranslationReactProvider - renders children after initialization", async () => {
   render(
-    <TranslationReactProvider translations={translations}>
+    <TranslationReactProvider translations={translations} environment={TestEnvironment}>
       <div data-testid={(++elementNumber).toString()}>Hello</div>
     </TranslationReactProvider>,
   );
@@ -36,6 +37,7 @@ Deno.test("TranslationReactProvider - translates a key", async () => {
     <TranslationReactProvider
       translations={translations}
       locale="fr"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -62,6 +64,7 @@ Deno.test("TranslationReactProvider - returns key when translation does not exis
     <TranslationReactProvider
       translations={translations}
       locale="fr"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -90,6 +93,7 @@ Deno.test("TranslationReactProvider - interpolates translation data", async () =
     <TranslationReactProvider
       translations={translations}
       locale="fr"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -155,6 +159,7 @@ Deno.test("TranslationReactProvider - setLocale calls onLocaleChange", async () 
       onLocaleChange={(locale) => {
         receivedLocale = locale;
       }}
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -193,6 +198,7 @@ Deno.test("TranslationReactProvider - setLocale accepts undefined", async () => 
       onLocaleChange={(locale) => {
         receivedLocale = locale;
       }}
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -218,6 +224,7 @@ Deno.test("TranslationReactProvider - updates when locale changes", async () => 
     <TranslationReactProvider
       translations={translations}
       locale="fr"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -234,6 +241,7 @@ Deno.test("TranslationReactProvider - updates when locale changes", async () => 
     <TranslationReactProvider
       translations={translations}
       locale="en"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,
@@ -263,6 +271,7 @@ Deno.test("TranslationReactProvider - uses fallback locale", async () => {
       translations={translations}
       locale="fr"
       fallbackLocale="en"
+      environment={TestEnvironment}
     >
       <TestComponent />
     </TranslationReactProvider>,

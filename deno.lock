@@ -7,7 +7,7 @@
     "jsr:@std/internal@^1.0.14": "1.0.14",
     "jsr:@std/path@^1.1.5": "1.1.6",
     "jsr:@std/path@^1.1.6": "1.1.6",
-    "jsr:@viviengraffin/translation-core@1": "1.0.3",
+    "jsr:@viviengraffin/translation-core@2": "2.0.0",
     "npm:@testing-library/react@^16.3.3": "16.3.3_@testing-library+dom@10.4.2_@types+react@19.3.0_@types+react-dom@19.3.0_react@19.3.0_react-dom@19.3.0",
     "npm:@types/react-dom@^19.2.8": "19.3.0_@types+react@19.3.0",
     "npm:@types/react@^19.2.8": "19.3.0",
@@ -38,8 +38,8 @@
         "jsr:@std/internal@^1.0.14"
       ]
     },
-    "@viviengraffin/translation-core@1.0.3": {
-      "integrity": "f78fc1bebfe190084358b57445da8eb414d7f4a76952f9ecfc8c061f644c3a28"
+    "@viviengraffin/translation-core@2.0.0": {
+      "integrity": "186bb25cc048258e378a4626f0c0258c682e8cd4dcd18b8afa785da04ee94225"
     }
   },
   "npm": {
@@ -206,7 +206,7 @@
       "jsr:@std/assert@^1.0.19",
       "jsr:@std/fs@^1.0.24",
       "jsr:@std/path@^1.1.6",
-      "jsr:@viviengraffin/translation-core@1",
+      "jsr:@viviengraffin/translation-core@2",
       "npm:@testing-library/react@^16.3.3",
       "npm:@types/react-dom@^19.2.8",
       "npm:@types/react@^19.2.8",

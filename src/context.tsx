@@ -1,10 +1,11 @@
 import TranslationReact from "@/class.ts";
 import {
   DEFAULT_FALLBACK_LOCALE,
-  loader as getTranslationObjects,
+  Environment,
   TranslationBuilder,
   type TranslationContainer,
   TranslationNamespaces,
+  type LocaleFormat,
 } from "@viviengraffin/translation-core/frontend";
 import React, {
   createContext,
@@ -15,6 +16,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { Constructor, EnvironmentBase } from "@viviengraffin/translation-react";
 
 type TranslationReactContextValue = {
   t(key: string, datas?: Record<string, unknown>): ReactElement | string;
@@ -28,6 +30,8 @@ type TranslationReactProviderArgs = PropsWithChildren<{
   translations: TranslationContainer<ReactElement>;
   locale?: string;
   fallbackLocale?: string;
+  localeFormat?: LocaleFormat;
+  environment?: Constructor<EnvironmentBase>;
   onLocaleChange?: (locale: string | undefined) => void;
   onTranslationsChange?: (
     translations: TranslationContainer<ReactElement>,
@@ -114,6 +118,8 @@ export function TranslationReactProvider(
     children,
     onLocaleChange = () => {},
     onTranslationsChange = () => {},
+    localeFormat = "dash",
+    environment = Environment
   }: TranslationReactProviderArgs,
 ): JSX.Element | null {
   const [instance, setInstance] = useState<TranslationReact | null>(null);
@@ -174,10 +180,11 @@ export function TranslationReactProvider(
     let cancelled = false;
 
     new TranslationBuilder(TranslationReact)
-      .withLoader(getTranslationObjects)
+      .withEnvironment(environment)
       .withTranslations(translations)
       .withLocale(locale)
       .withFallbackLocale(fallbackLocale)
+      .withLocaleFormat(localeFormat)
       .build()
       .then((instance) => {
         if (cancelled) return;

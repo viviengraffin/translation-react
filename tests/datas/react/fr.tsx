@@ -1,11 +1,9 @@
-import type { TranslationObject } from "@viviengraffin/translation-core";
-import type { ReactElement } from "react";
-import type { HelloPeopleArgs } from "./types.ts";
+import type { HelloPeopleArgs, TranslationType } from "./types.ts";
 import React from "react";
 
 export default {
   hello: {
     world: <h1>Bonjour le monde</h1>,
-    people: ({ name }: HelloPeopleArgs) => <h1>Bonjour {name}</h1>,
+    people: ({ name }) => <h1>Bonjour {name}</h1>,
   },
-} satisfies TranslationObject<ReactElement>;
+} satisfies TranslationType;

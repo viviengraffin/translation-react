@@ -1,19 +1,19 @@
 // deno-lint-ignore-file jsx-curly-braces require-await
 import {
-  createLoader,
   TranslationBuilder,
   TranslationReact,
 } from "@viviengraffin/translation-react";
 import translations from "./datas/react/translation.ts";
 import { assertEquals, assertRejects } from "@std/assert";
 import React from "react";
+import { TestEnvironment } from "./lib.ts";
 
 async function buildInstance(
   callback: (builder: TranslationBuilder<TranslationReact>) => void = () => {},
 ) {
   const builder = new TranslationBuilder(TranslationReact)
     .withTranslations(translations)
-    .withLoader(createLoader())
+    .withEnvironment(TestEnvironment)
     .withFallbackLocale("fr");
 
   callback(builder);
