@@ -2,10 +2,10 @@ import TranslationReact from "@/class.ts";
 import {
   DEFAULT_FALLBACK_LOCALE,
   Environment,
+  type LocaleFormat,
   TranslationBuilder,
   type TranslationContainer,
   TranslationNamespaces,
-  type LocaleFormat,
 } from "@viviengraffin/translation-core/frontend";
 import React, {
   createContext,
@@ -24,6 +24,7 @@ type TranslationReactContextValue = {
   setNamespaces(namespaces: string[]): void;
   addNamespaces(...namespaces: string[]): void;
   removeNamespaces(...namespaces: string[]): void;
+  getLocale(): string;
 };
 
 type TranslationReactProviderArgs = PropsWithChildren<{
@@ -119,7 +120,7 @@ export function TranslationReactProvider(
     onLocaleChange = () => {},
     onTranslationsChange = () => {},
     localeFormat = "dash",
-    environment = Environment
+    environment = Environment,
   }: TranslationReactProviderArgs,
 ): JSX.Element | null {
   const [instance, setInstance] = useState<TranslationReact | null>(null);
@@ -176,6 +177,10 @@ export function TranslationReactProvider(
     }
   };
 
+  const getLocale = (): string => {
+    return instance!.getLocale();
+  };
+
   useEffect(() => {
     let cancelled = false;
 
@@ -206,6 +211,7 @@ export function TranslationReactProvider(
         setNamespaces,
         addNamespaces,
         removeNamespaces,
+        getLocale,
       }}
     >
       {children}

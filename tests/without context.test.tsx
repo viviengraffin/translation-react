@@ -66,3 +66,9 @@ Deno.test("TranslationReact - uses another separator", async () => {
 
   assertEquals(instance.translate("hello-world"), <h1>Bonjour le monde</h1>);
 });
+
+Deno.test("TranslationReact - Get current locale", async () => {
+  const instance = await buildInstance();
+
+  assertEquals(instance.getLocale(), "fr");
+});

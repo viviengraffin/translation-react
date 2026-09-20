@@ -11,7 +11,10 @@ let elementNumber = 0;
 
 Deno.test("TranslationReactProvider - renders children after initialization", async () => {
   render(
-    <TranslationReactProvider translations={translations} environment={TestEnvironment}>
+    <TranslationReactProvider
+      translations={translations}
+      environment={TestEnvironment}
+    >
       <div data-testid={(++elementNumber).toString()}>Hello</div>
     </TranslationReactProvider>,
   );
@@ -284,6 +287,37 @@ Deno.test("TranslationReactProvider - uses fallback locale", async () => {
     );
   });
 });
+
+Deno.test("TranslationReactProvider - Get current locale", async () => {
+  function TestComponent() {
+    const { getLocale } = useTranslation();
+
+    return (
+      <div data-testid={(++elementNumber).toString()}>
+        {getLocale()}
+      </div>
+    );
+  }
+
+  render(
+    <TranslationReactProvider
+      translations={translations}
+      locale="fr"
+      fallbackLocale="en"
+      environment={TestEnvironment}
+    >
+      <TestComponent />
+    </TranslationReactProvider>,
+  );
+
+  await waitFor(() => {
+    assertEquals(
+      screen.getByTestId(elementNumber).textContent,
+      "fr",
+    );
+  });
+});
+
 /*
 Deno.test("TranslationReactProvider - setNamespaces does nothing without namespaces", async () => {
   let callbackCalled = false;
