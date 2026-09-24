@@ -1,6 +1,7 @@
 import TranslationReact from "@/class.ts";
 import {
   DEFAULT_FALLBACK_LOCALE,
+  DEFAULT_LOCALE_FORMAT,
   Environment,
   type LocaleFormat,
   TranslationBuilder,
@@ -24,6 +25,7 @@ type TranslationReactContextValue = {
   setNamespaces(namespaces: string[]): void;
   addNamespaces(...namespaces: string[]): void;
   removeNamespaces(...namespaces: string[]): void;
+  getNamespaces(): string[];
   getLocale(): string;
 };
 
@@ -119,7 +121,7 @@ export function TranslationReactProvider(
     children,
     onLocaleChange = () => {},
     onTranslationsChange = () => {},
-    localeFormat = "dash",
+    localeFormat = DEFAULT_LOCALE_FORMAT,
     environment = Environment,
   }: TranslationReactProviderArgs,
 ): JSX.Element | null {
@@ -180,6 +182,10 @@ export function TranslationReactProvider(
   const getLocale = (): string => {
     return instance!.getLocale();
   };
+  
+  const getNamespaces = (): string[] => {
+    return instance!.getNamespaces();
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -212,6 +218,7 @@ export function TranslationReactProvider(
         addNamespaces,
         removeNamespaces,
         getLocale,
+        getNamespaces
       }}
     >
       {children}
